@@ -30,7 +30,7 @@ config.init();
 
 program
     .version(pkg.version)
-    .option('-v, --gitbook [version]', 'specify GitBook version to use')
+    .option('-v, --gitshu [version]', 'specify GitShu version to use')
     .option('-d, --debug', 'enable verbose error');
 
 
@@ -41,7 +41,7 @@ program
         var _versions = versions.list();
 
         if (_versions.length > 0) {
-            console.log('GitBook Versions Installed:');
+            console.log('GitShu Versions Installed:');
             console.log('');
             _.each(_versions,function(v) {
                 var text = v.tag;
@@ -52,7 +52,7 @@ program
             console.log('');
         } else {
             console.log('There is no versions installed');
-            console.log('You can install the latest version using: "gitbook versions:install latest"');
+            console.log('You can install the latest version using: "gitshu versions:install latest"');
         }
     });
 
@@ -63,7 +63,7 @@ program
         runPromise(
             versions.current(program.gitbook)
             .then(function(v) {
-                console.log("GitBook version is", v.tag, (v.tag != v.version? '('+v.version+')' : ''));
+                console.log("GitShu version is", v.tag, (v.tag != v.version? '('+v.version+')' : ''));
             })
         );
     });
@@ -75,7 +75,7 @@ program
         runPromise(
             versions.available()
             .then(function(available) {
-                console.log('Available GitBook Versions:');
+                console.log('Available GitShu Versions:');
                 console.log('');
                 console.log('    ', available.versions.join(", "));
                 console.log('');
@@ -91,7 +91,7 @@ program
 
 program
     .command('versions:install [version]')
-    .description('force install a specific version of gitbook')
+    .description('force install a specific version of gitshu')
     .action(function(version){
         version = version || "*";
 
@@ -99,7 +99,7 @@ program
             versions.install(version)
             .then(function(installedVersion) {
                 console.log("");
-                console.log(color.green("GitBook "+installedVersion+" has been installed"));
+                console.log(color.green("GitShu "+installedVersion+" has been installed"));
             })
         );
     });
@@ -115,27 +115,27 @@ program
             versions.link(version, folder)
             .then(function() {
                 console.log("");
-                console.log(color.green("GitBook "+version+" point to "+folder));
+                console.log(color.green("GitShu "+version+" point to "+folder));
             })
         );
     });
 
 program
     .command('versions:uninstall [version]')
-    .description('uninstall a specific version of gitbook')
+    .description('uninstall a specific version of gitshu')
     .action(function(version){
         runPromise(
             versions.uninstall(version)
             .then(function() {
                 console.log("");
-                console.log(color.green("GitBook "+version+" has been uninstalled"));
+                console.log(color.green("GitShu "+version+" has been uninstalled"));
             })
         );
     });
 
 program
     .command('versions:update [tag]')
-    .description('update to the latest version of gitbook')
+    .description('update to the latest version of gitshu')
     .action(function(tag){
         runPromise(
             versions.update(tag)
@@ -144,7 +144,7 @@ program
                     console.log("No update found!");
                 } else {
                     console.log("");
-                    console.log(color.green("GitBook has been updated to "+version));
+                    console.log(color.green("GitShu has been updated to "+version));
                 }
             })
         );
@@ -152,7 +152,7 @@ program
 
 program
     .command('help')
-    .description('list commands for a specific version of gitbook')
+    .description('list commands for a specific version of gitshu')
     .action(function(){
         runPromise(
             versions.get(program.gitbook)
@@ -163,7 +163,7 @@ program
 
 program
     .command('*')
-    .description('run a command with a specific gitbook version')
+    .description('run a command with a specific gitshu version')
     .action(function(commandName){
         var args = parsedArgv._.slice(1);
         var kwargs = _.omit(parsedArgv, '$0', '_');

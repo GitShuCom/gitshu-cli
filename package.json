@@ -1,8 +1,8 @@
 {
-    "name": "gitbook-cli",
+    "name": "gitshu-cli",
     "version": "1.0.1",
-    "homepage": "https://www.gitbook.com",
-    "description": "CLI to generate books and documentation using gitbook",
+    "homepage": "http://www.gitshu.com",
+    "description": "Fork gitbook-cli",
     "main": "bin/gitbook.js",
     "dependencies": {
         "q": "1.4.1",
@@ -20,22 +20,22 @@
     "devDependencies": {
         "mocha": "2.3.3",
         "should": "7.1.0",
-        "gitbook": "2.5.0-beta.1"
+        "gitshu": "latest"
     },
     "scripts": {
         "test": "mocha --reporter spec --recursive --bail"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/GitbookIO/gitbook-cli.git"
+        "url": "https://github.com/GitShuCom/gitshu-cli.git"
     },
     "author": "FriendCode Inc. <contact@gitbook.com>",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/GitbookIO/gitbook-cli/issues"
+        "url": "https://github.com/GitShuCom/gitbook-cli/issues"
     },
     "bin": {
-        "gitbook": "./bin/gitbook.js"
+        "gitshu": "./bin/gitbook.js"
     },
     "contributors": [
         {
@@ -45,6 +45,10 @@
         {
             "name": "Samy Pessé",
             "email": "samy@gitbook.com"
+        },
+        {
+            "name": "WangSai",
+            "email": "wangsai@bootcss.com"
         }
     ]
 }
